@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  spark-zeppelin-hdfs:
+    image: "dylanmei/zeppelin"
+    environment:
+      ZEPPELIN_PORT: 8080
+      MASTER: local[*]
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/home/vagrant/zeppelin_data:/usr/zeppelin/data"
+      - "/home/vagrant/notebooks:/usr/zeppelin/notebook"
+    links:
+      - mongodb:mongodb
+      - kafka:kafka
+
+  mongodb:
+    image: "bitnami/mongodb:latest"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "/home/vagrant/mongodb_data:/bitnami"
+    environment:
+      - MONGODB_ROOT_PASSWORD=password123
+
+  kafka:
+    image: "landoop/fast-data-dev"
+    ports:
+      - "2181:2181"
+      - "3030:3030"
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+      - "9092:9092"
+    environment:
+      - ADV_HOST=127.0.0.1
+    volumes:
+      - "/home/vagrant/kafka_data:/tmp"
