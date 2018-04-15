@@ -15,6 +15,9 @@ Vagrant.configure("2") do |config|
     subconfig.vm.box = "bento/centos-7.4"
     subconfig.vm.hostname = "master"
     subconfig.vm.network :private_network, ip: "10.0.0.10"
+     subconfig.vm.provider "virtualbox" do |vb|
+      vb.memory = "4426"
+    end
   end
 
   config.vm.define "node1" do |subconfig|
