@@ -29,4 +29,4 @@ This example shows how with a Windows machine, we can set-up a local big data de
 * Download data: <a href="https://www.kaggle.com/fivethirtyeight/uber-pickups-in-new-york-city/data">Uber dataset</a>.
   - Consider loading the dataset into the spark-zeppelin container see the "docker cp" command.
 * Upload the ./notebook/Uber_clustering.json file and run the cells.
-  - Before producing to kafka or consuming from kafka consider adding the right .jar file into the container, under the directory "/usr/spark-2.2.0/jars".
+  - Before producing to kafka or consuming from kafka consider adding the right .jar files into the container, under the directory "/usr/spark-2.2.0/jars".
