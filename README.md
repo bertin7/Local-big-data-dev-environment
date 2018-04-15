@@ -6,7 +6,10 @@ This example shows how with a Windows machine, we can set-up a local big data de
 * Install Vagrant <a href="https://www.vagrantup.com/">Vagrant</a>.
 * Download the project directory
 * Open terminal into the project directory and type : `vagrant up <machine-name>`. In this case master or node1..
-  - The Vagrantfile is just a sample, you can rename, delete, change or add configurations to your machines, but pay attention to the "subconfig.vm.customize ["modifyvm", :id, "--memory", 4426]" configuration. The machine must run at least with 4GB RAM.
+  - The Vagrantfile is just a sample, you can rename, delete, change or add configurations to your machines, but pay attention to the  `subconfig.vm.provider "virtualbox" do |vb|
+    vb.memory = "4426"
+ end"`
+ configuration. The machine must run at least with 4GB RAM, 8GB RAM is recommended.
 * Connect to the vagrant machine `vagrant ssh master`.
 * Install <a href="https://docs.docker.com/install/linux/centos/">Docker</a>, in this case the vagrant box is a Centos machine.
 * Install Docker-compose:
